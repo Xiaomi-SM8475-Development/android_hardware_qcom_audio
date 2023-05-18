@@ -47,6 +47,7 @@ LOCAL_CFLAGS += -Wno-shorten-64-to-32
 LOCAL_CFLAGS += -Wno-tautological-compare
 LOCAL_CFLAGS += -Wno-unused-function
 LOCAL_CFLAGS += -Wno-unused-local-typedef
+LOCAL_CFLAGS += -Wno-implicit-fallthrough
 LOCAL_CPPFLAGS += -fexceptions
 
 LOCAL_C_INCLUDES += \
