@@ -83,6 +83,7 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_OWNER := qti
 
 LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_ADDITIONAL_DEPENDENCIES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr
 
 LOCAL_C_INCLUDES := \
         $(call project-path-for,qcom-audio)/hal \
@@ -90,12 +91,15 @@ LOCAL_C_INCLUDES := \
         vendor/qcom/opensource/pal \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/audio \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/techpack/audio/include \
+        device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/audio/include \
+        device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/techpack/audio/include \
         $(call include-path-for, audio-effects) \
         $(call project-path-for,qcom-audio)/hal/audio_extn/
 
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
   LOCAL_HEADER_LIBRARIES += audio_kernel_headers
   LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/vendor/qcom/opensource/audio-kernel/include
+  LOCAL_C_INCLUDES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/techpack/audio/include
 endif
 
 ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
@@ -193,6 +197,7 @@ LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_OWNER := qti
 
 LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_ADDITIONAL_DEPENDENCIES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr
 
 LOCAL_C_INCLUDES := \
         $(call project-path-for,qcom-audio)/hal \
@@ -200,6 +205,9 @@ LOCAL_C_INCLUDES := \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include/audio \
         $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/techpack/audio/include \
+        device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr \
+        device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/include/audio \
+        device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/techpack/audio/include \
         $(call include-path-for, audio-effects) \
         $(call include-path-for, audio-route) \
         $(call project-path-for,qcom-audio)/hal/audio_extn \
@@ -208,6 +216,7 @@ LOCAL_C_INCLUDES := \
 ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
   LOCAL_HEADER_LIBRARIES += audio_kernel_headers
   LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/vendor/qcom/opensource/audio-kernel/include
+  LOCAL_C_INCLUDES += device/qcom/$(TARGET_BOARD_PLATFORM)-kernel/kernel-headers/usr/techpack/audio/include
 endif
 
 ifeq ($(TARGET_COMPILE_WITH_MSM_KERNEL),true)
