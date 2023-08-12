@@ -67,6 +67,7 @@ LOCAL_HEADER_LIBRARIES := libhardware_headers \
                           libacdb_headers \
                           libutils_headers \
                           qti_audio_kernel_uapi \
+                          qti_kernel_headers_510 \
                           libpal_headers
 
 LOCAL_SHARED_LIBRARIES := \
